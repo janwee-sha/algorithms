@@ -2,6 +2,8 @@
 
 ## 1.1 Bucket sort
 
+> The following statement is a quote from [https://github.com/raywenderlich/swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club/blob/master/Bucket%20Sort/README.markdown)
+
 Bucket sort,also known as Bin Sort,is a distributed sorting algorithm,which sort elements from an array by performing these steps:
 
 1. Distribute the elements into buckets or bins.
@@ -25,11 +27,19 @@ In the worst case, the elements are sent all to the same bucket, making the proc
 
 ## 1.2 Heap Sort
 
-Sorts an array from low to high using a heap.
+> The following statement is a quote from [https://github.com/raywenderlich/swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club/blob/master/Heap%20Sort/README.markdown)
+
+Sorts an array from low to high using a heap. 
+
+To sort from lowest to highest, heap sort first converts the unsorted array to a max-heap, so that the first element in the array is the largest.
+
+
 
 # 2. Data structure
 
 ## 2.1 Heap
+
+> The following statement is a quote from [https://github.com/raywenderlich/swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club/blob/master/Heap/README.markdown)
 
 A [heap](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/heap/Heap.java) is a binary tree inside an array,so it does not use parent/child pointers.A heap is sorted based on the "heap property" that determines the order of the nodes in the tree.
 
