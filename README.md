@@ -25,7 +25,7 @@ In the best case, the algorithm distributes the elements uniformly between bucke
 
 In the worst case, the elements are sent all to the same bucket, making the process take O(n^2).
 
-## 1.2 Heap Sort
+## 1.2 [Heap Sort](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/sort/HeapSort.java)
 
 > The following statement is a quote from [https://github.com/raywenderlich/swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club/blob/master/Heap%20Sort/README.markdown)
 
@@ -79,11 +79,11 @@ Performance of heap sort is **O(n log n)** in best, worst, and average case.
 
 # 2. Data structure
 
-## 2.1 Heap
+## 2.1 [Heap](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/heap/Heap.java)
 
 > The following statement is a quote from [https://github.com/raywenderlich/swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club/blob/master/Heap/README.markdown)
 
-A [heap](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/heap/Heap.java) is a binary tree inside an array,so it does not use parent/child pointers.A heap is sorted based on the "heap property" that determines the order of the nodes in the tree.
+A heap is a binary tree inside an array,so it does not use parent/child pointers.A heap is sorted based on the "heap property" that determines the order of the nodes in the tree.
 
 Common use for heap：
 

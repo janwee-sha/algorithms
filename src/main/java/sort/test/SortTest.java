@@ -67,4 +67,10 @@ class SortTest {
         System.out.println("Testing Bucket Sort.");
         testSolution(new BucketSort());
     }
+
+    @Test
+    void testHeapSort() {
+        System.out.println("Testing Heap Sort.");
+        testSolution(new HeapSort());
+    }
 }
