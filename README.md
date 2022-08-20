@@ -25,7 +25,7 @@ In the best case, the algorithm distributes the elements uniformly between bucke
 
 In the worst case, the elements are sent all to the same bucket, making the process take O(n^2).
 
-## 1.2 [Heap Sort](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/sort/HeapSort.java)
+## 1.2 Heap Sort
 
 > The following statement is a quote from [https://github.com/raywenderlich/swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club/blob/master/Heap%20Sort/README.markdown)
 
@@ -76,10 +76,32 @@ We repeat this process until we arrive at the root node and then the whole array
 
 Performance of heap sort is **O(n log n)** in best, worst, and average case.
 
+**Implementation**:
+
+[Here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/sort/HeapSort.java) is my implementation of Heap Sort.
+
+## 2.3 Quicksort
+
+### 2.3.1 Introduction
+
+Quicksort is one of the most famous algorithms in history. It was invented way back in 1959 by Tony Hoare, at a time when recursion was still a fairly nebulous concept.
+
+Here's how it works. When given an array, the algorithm splits it up into three parts on "pivot" variable. The pivot can be any element of the sorting part of the array. 
+
+All the elements less than the pivot go into a partition. All the elements equal to or greater than the pivot go into another partition. 
+
+Once we finish to partition, we recursively sort the partitions, then glues those sorted subarrays to get the final result.
+
+### 2.3.2 Implementation
+
+To implement a Quick Sort, we need to consider how to manage the partitions, and put the elements to their correct positions. We can use 4 variables, which can be called `p`,`i`,`j`,`r`. `p` and `r` always mark the start and end position of current subarray. `j` always points at the element to traverse. And `i` marks the end position of the left partition that contains small element. Each time we add an element to the left position, we only need to swap the element `j` and the element `i+1`, then make `i` plus 1. That can help us to achieve the goal of expanding the left partition and the moving the right partition forwards. And when we want to add an element to the right partition, we simply make `j` plus 1. 
+
+[Here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/sort/QuickSort.java) is my implementation of Quick Sort.
+
 
 # 2. Data structure
 
-## 2.1 [Heap](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/heap/Heap.java)
+## 2.1 Heap
 
 > The following statement is a quote from [https://github.com/raywenderlich/swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club/blob/master/Heap/README.markdown)
 
@@ -91,7 +113,7 @@ Common use for heap：
 - To support heap sorts.
 - To compute the minumum (or maximum) element of a collection quickly.
 
-### 2.1.1 The heap priority
+### 2.1.1 The heap property
 
 There are two kinds of heaps: a max-heap and a min-heap. In a max-heap parent nodes have a greater value than each of their children. The property of a min-heap is the oppsite. 
 
@@ -124,3 +146,13 @@ Here are other operations that are built on primitive operations:
 
 - `insert(value)`: Adds the new element to the end of the heap and then uses `shiftUp()` to fix the heap.
 - `remove()`:Removes and returns the maximum value (max-heap) or the minimum value (min-heap).
+
+### 2.1.4 Implementation
+
+[Here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/heap/Heap.java) is my implementation of Heap.
+
+# 3. Classic Cases
+
+## 3.1 K-th Largest Element Problem
+
+Given an integer array `a`. Write an algorithm that finds the k-th largest element in the array.
