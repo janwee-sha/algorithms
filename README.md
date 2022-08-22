@@ -1,6 +1,100 @@
-# 1.Sorting
+# 1. Data structure
 
-## 1.1 Bucket sort
+## 1.1 Heap
+
+> The following statement is a quote from [https://github.com/raywenderlich/swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club/blob/master/Heap/README.markdown)
+
+A heap is a binary tree inside an array,so it does not use parent/child pointers.A heap is sorted based on the "heap property" that determines the order of the nodes in the tree.
+
+Common use for heap：
+
+- To build priority queues.
+- To support heap sorts.
+- To compute the minumum (or maximum) element of a collection quickly.
+
+### 1.1.1 The heap property
+
+There are two kinds of heaps: a max-heap and a min-heap. In a max-heap parent nodes have a greater value than each of their children. The property of a min-heap is the oppsite. 
+
+> Note：The root of the heap has the maximum or minimum element, but the sort order of other elements are not predictable. For example, the maximum element is always at index 0 in a max-heap, but the minimum element isn’t necessarily the last one. -- the only guarantee you have is that it is one of the leaf nodes, but not which one.
+
+### 1.1.2 The tree inside a array
+
+Implementing a tree-like structure by an array is efficient in both time and space.
+
+There is a well defined relationship between the array index of a tree node and the array indices of its parent and children.
+
+If `i` is the index of a node, then the following formulas give the array indices of its parent and child nodes:
+
+```
+parent(i) = floor((i - 1)/2)
+left(i) = 2i +1
+right(i) = 2i +2
+```
+
+### 1.1.3 What can you do with a heap?
+
+There are two primitive operations necessary to make sure the heap is a valid max-heap or min-heap after you insert or remove an element:
+
+- `shiftUp()`:If The element is greater (in max-heap) or smaller than (in min-heap) than its parent, it need to be swapped with the parent. This makes it move up the tree.
+- `shiftDown`:If the element is smaller (in max-heap) or greater (in min-heap) than its children, it needs to move down the tree. The operation is also called "heapify".
+
+Shifting up or down is a recursive procedure that takes **O(log n)** time.
+
+Here are other operations that are built on primitive operations:
+
+- `insert(value)`: Adds the new element to the end of the heap and then uses `shiftUp()` to fix the heap.
+- `remove()`:Removes and returns the maximum value (max-heap) or the minimum value (min-heap).
+
+### 1.1.4 Implementation
+
+[Here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/heap/Heap.java) is my implementation of Heap.
+
+## 1.2 Binary Search Tree
+
+> The following statement is a quote from [Introduction to Algorithms](https://en.wikipedia.org/wiki/Introduction_to_Algorithms).
+
+Serach trees are data structure that support many dynamic-set operations, including SEARCH, MINIMUM, MAXIMUM, PREDECESSOR, SUCCESSOR, INSERT and DELETE. Thus, a search tree can be used both as a dictionary and as a priority queue.
+
+Basic operations on a binary search tree take time proportional to the height of the tree. For a complete binary tree with `n` nodes, such operations run in `O(log n)` worst-case time. If the tree is a linar chain of `n` nodes, however, the same oeprations take `O(n)` worst-case time.
+
+### 1.2.1 What is a binary search tree?
+
+A binary search tree is organized, as the name suggeests, in a binary tree. Such a tree can be represented by a linked data structure in which each node is an object. In additional to a `key` field and satellite data, each node contains fields `left`, `right` and `p` that point to the nodes corresponding to its left child, its right child, and its parent, respectively. If a child or the parent is missing, the appropriate field contains the value `NIL`.
+
+For any node `x`, the keys in the left subtree of `x` are at most `key[x]`, and the keys in the right subtree of `x` are at least `key[x]`.
+
+### 1.2.2 Querying a binary search tree
+
+A common operation performed on a binary search tree is searching for a key stored in the tree. Besides SEARCH operation, BST can support such queries as MAXIMUM, MINIMUM, SUCCESOR, and PREDECESSOR. Each can be suported in time `O(h)` on a binary search tree of height `h`.
+
+### 1.2.3 Insertion and deletion
+
+The operations of insertion and deletion cause the dynamic set represented by a binary search tree to change. The data structure must be modified to reflect this change, but in such a way that the BST property continues to hold.
+
+### 1.2.4 Implementation
+
+Check my implementation of binary search tree in Java [here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/tree/BST.java).
+
+## 1.3 Red-Black Trees
+
+Red-black trees are one of many search tree schmes that are "balanced" in order to guarantee that the basic dynamic-set operations takes `O(lg n)` time in the worst case.
+
+### 1.3.1 Properties of red-black trees
+
+a **red-black tree** is a binary search tree with one extra bit of storage per node: its **color**, which can be either RED or BLACK.
+
+A binary search tree is a red-black tree if it satisfies the following **red-black properties**:
+
+- Every node is either red or black.
+- The root is black.
+- Every leaf (NIL) is black.
+- If a node is red, then both its child are black.
+- For each node, all paths from the node to descendant leaves contains the same number of black nodes.
+
+# 2.Sorting
+
+## 2.1 Bucket sort
 
 > The following statement is a quote from [https://github.com/raywenderlich/swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club/blob/master/Bucket%20Sort/README.markdown)
 
@@ -25,7 +119,7 @@ In the best case, the algorithm distributes the elements uniformly between bucke
 
 In the worst case, the elements are sent all to the same bucket, making the process take O(n^2).
 
-## 1.2 Heap Sort
+## 2.2 Heap Sort
 
 > The following statement is a quote from [https://github.com/raywenderlich/swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club/blob/master/Heap%20Sort/README.markdown)
 
@@ -99,59 +193,6 @@ Once we finish to partition, we recursively sort the partitions, then glues thos
 To implement a Quick Sort, we need to consider how to manage the partitions, and put the elements to their correct positions. We can use 4 variables, which can be called `p`,`i`,`j`,`r`. `p` and `r` always mark the start and end position of current subarray. `j` always points at the element to traverse. And `i` marks the end position of the left partition that contains small element. Each time we add an element to the left position, we only need to swap the element `j` and the element `i+1`, then make `i` plus 1. That can help us to achieve the goal of expanding the left partition and the moving the right partition forwards. And when we want to add an element to the right partition, we simply make `j` plus 1. 
 
 [Here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/sort/QuickSort.java) is my implementation of Quick Sort.
-
-
-# 2. Data structure
-
-## 2.1 Heap
-
-> The following statement is a quote from [https://github.com/raywenderlich/swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club/blob/master/Heap/README.markdown)
-
-A heap is a binary tree inside an array,so it does not use parent/child pointers.A heap is sorted based on the "heap property" that determines the order of the nodes in the tree.
-
-Common use for heap：
-
-- To build priority queues.
-- To support heap sorts.
-- To compute the minumum (or maximum) element of a collection quickly.
-
-### 2.1.1 The heap property
-
-There are two kinds of heaps: a max-heap and a min-heap. In a max-heap parent nodes have a greater value than each of their children. The property of a min-heap is the oppsite. 
-
-> Note：The root of the heap has the maximum or minimum element, but the sort order of other elements are not predictable. For example, the maximum element is always at index 0 in a max-heap, but the minimum element isn’t necessarily the last one. -- the only guarantee you have is that it is one of the leaf nodes, but not which one.
-
-### 2.1.2 The tree inside a array
-
-Implementing a tree-like structure by an array is efficient in both time and space.
-
-There is a well defined relationship between the array index of a tree node and the array indices of its parent and children.
-
-If `i` is the index of a node, then the following formulas give the array indices of its parent and child nodes:
-
-```
-parent(i) = floor((i - 1)/2)
-left(i) = 2i +1
-right(i) = 2i +2
-```
-
-### 2.1.3 What can you do with a heap?
-
-There are two primitive operations necessary to make sure the heap is a valid max-heap or min-heap after you insert or remove an element:
-
-- `shiftUp()`:If The element is greater (in max-heap) or smaller than (in min-heap) than its parent, it need to be swapped with the parent. This makes it move up the tree.
-- `shiftDown`:If the element is smaller (in max-heap) or greater (in min-heap) than its children, it needs to move down the tree. The operation is also called "heapify".
-
-Shifting up or down is a recursive procedure that takes **O(log n)** time.
-
-Here are other operations that are built on primitive operations:
-
-- `insert(value)`: Adds the new element to the end of the heap and then uses `shiftUp()` to fix the heap.
-- `remove()`:Removes and returns the maximum value (max-heap) or the minimum value (min-heap).
-
-### 2.1.4 Implementation
-
-[Here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/heap/Heap.java) is my implementation of Heap.
 
 # 3. Classic Cases
 
