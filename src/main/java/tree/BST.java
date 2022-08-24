@@ -18,17 +18,17 @@ public class BST<K extends Comparable<K>, V>
         else return node.val;
     }
 
-    private static <Key extends Comparable<Key>, Val> Node<Key, Val> put(Node<Key, Val> node, Key key, Val val) {
+    private static <Key extends Comparable<Key>, Val> Node<Key, Val> insert(Node<Key, Val> node, Key key, Val val) {
         if (node == null) return new Node<>(key, val);
         int compare = key.compareTo(node.key);
-        if (compare < 0) node.left = put(node.left, key, val);
-        else if (compare > 0) node.right = put(node.right, key, val);
+        if (compare < 0) node.left = insert(node.left, key, val);
+        else if (compare > 0) node.right = insert(node.right, key, val);
         else node.val = val;
         return node;
     }
 
-    public void put(K key, V val) {
-        root = put(root, key, val);
+    public void insert(K key, V val) {
+        root = insert(root, key, val);
     }
 
     public V get(K key) {

@@ -9,5 +9,5 @@ package tree;
 public interface Tree<K extends Comparable<K>, V> {
     V get(K key);
 
-    void put(K key, V val);
+    void insert(K key, V val);
 }

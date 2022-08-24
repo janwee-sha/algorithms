@@ -76,23 +76,129 @@ The operations of insertion and deletion cause the dynamic set represented by a 
 
 Check my implementation of binary search tree in Java [here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/tree/BST.java).
 
-## 1.3 Red-Black Trees
+## 1.3 Two-Three Tree
 
-Red-black trees are one of many search tree schmes that are "balanced" in order to guarantee that the basic dynamic-set operations takes `O(lg n)` time in the worst case.
+> 以下描述摘自Robert Sedgewick和Kevin Wayne的《算法（第4版）》
 
-### 1.3.1 Properties of red-black trees
+一棵**2-3查找树**或为一棵空树，或由以下结点组成：
 
-a **red-black tree** is a binary search tree with one extra bit of storage per node: its **color**, which can be either RED or BLACK.
+- 2- 结点，含有一个键（及其对应的值）和两条链接，左链接指向的2-3树中的键都小于该结点，右链接指向的2-3树中的键都大于该结点。
+- 3- 结点，含有两个键（及其对应的值）和三条链接，左链接指向的2-3树中的键都小于该结点，中链接指向的2-3树中的键都位于该结点的两个键之间，右链接指向的2-3树中的键都大于该结点。
 
-A binary search tree is a red-black tree if it satisfies the following **red-black properties**:
+一棵**完美平衡**的2-3查找树中的所有空链接到根结点的距离都应该是相同的。
 
-- Every node is either red or black.
-- The root is black.
-- Every leaf (NIL) is black.
-- If a node is red, then both its child are black.
-- For each node, all paths from the node to descendant leaves contains the same number of black nodes.
+### 1.3.1 Search
 
-# 2.Sorting
+2-3树的查找算法可以看作BST的查找算法的一般化。
+
+### 1.3.2 Insertion
+
+向2-3树中插入一个新结点时，我们先对树做一次未命中的查找，然后把新结点挂在树的底部。分为若干种情况：
+
+- 若未命中的查找结束于一个2-结点，只需把这个2-结点替换为一个3-结点，将要插入的键保存在其中即可。
+
+```
+插入K：
+        M               M
+      /   \           /   \
+   (E,J)   R  ->   (E,J)    R
+  /   |  \        /   | \
+(A,C) H   L    (A,C)  H (K,L)
+```
+- 若未命中的查找结束3-结点，且结点所在的树只有当前结点，我们先把键存入该结点中，使之成为一个4-结点，然后将4-结点分解为3个2-结点组成的2-3树。
+
+```
+插入S :
+ (A,E) ->  (A,E,S) ->       E
+ / | \     / / \ \        /   \
+                         A     S
+                        / \   / \
+```
+
+- 若未命中的查找结束于一个父结点为2-结点的3-结点，我们先把键存入该结点，然后将中健移至父结点。
+
+```
+向树中插入Z：
+      |                      |                     |
+      R                      R                   (R,X)
+    /   \        ->        /   \       ->       /  | \
+   P   (S,X)              p   (S,X,Z)          p   S   Z
+  / \  / | \             / \  / / \ \         / \ / \ / \ 
+```
+
+- 若未命中的查找结束于父结点为3-结点的3-结点，我们一直向上不断分解临时的4-结点并将中键插入更高层的结点。
+
+在一棵大小为N的2-3树中，查找和插入操作访问的结点必然不超过`lg N`个。
+
+## 1.3 Red-Black Tree
+
+> 以下描述摘自Robert Sedgewick和Kevin Wayne的《算法（第4版）》
+
+红黑二叉查找树背后的思想使用标准的二叉查找树和一些额外的信息（替换3-结点）来表示2-3树。将树中的链接分为两种类型：
+
+- **红链接**，始终左斜的红色链接相连的两个2-结点构成一个3-结点
+- **黑链接**：2-3树中的普通链接。
+
+### 1.3.1 红黑树的属性：
+
+- 红链接均为左链接；
+- 没有任何一个结点同时和两条红色链接相连；
+- 该树是**完美黑色平衡**的，即任意空链接到根节点的路径上的黑链接数量相同。
+
+### 1.3.2 旋转
+
+（围绕x的）左旋：
+
+```
+      |                |
+      x                y
+    /   \            /   \
+  [A]    y    ->    x    [C]
+        / \        / \
+      [B] [C]    [A] [B]
+```
+
+（围绕y的右旋）：
+
+```
+      |                |
+      x                y
+    /   \            /   \
+  [A]    y    <-    x    [C]
+        / \        / \
+      [B] [C]    [A] [B]
+```
+
+### 1.3.3 颜色转换
+
+我们用`FLIP_COLOR`方法来转换一个结点的两个红色子结点的颜色，将子结点的颜色由红变黑，同时将父结点的颜色由黑变红：
+
+```mermaid
+	graph BT
+	LE(E) -.-LP(...)
+	LA(A) === LE
+	LS(S) === LE
+	
+	RE(E) === RP(...)
+	RA(A) -.- RE
+	RS(S) -.- RE
+	
+```
+
+> 虚线代表黑链接，实线代表红链接
+
+### 1.3.4 插入
+
+2-3树中的插入算法需要我们分解，将中间腱插入父结点，直至遇到一个2-结点或是根节点。在沿着插入点到根节点的路径向上移动时的情况的对应处理方式：
+
+- 若右子结点是红色而左子结点是黑色的，进行左旋转；
+- 若左子结点是红色的且它的左子结点也是红色的，进行右旋转；
+- 若左右子结点均为红色，进行颜色转换。
+
+### 1.3.4 实现
+
+[这里](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/tree/RBBST.java)是按以上思想实现的红黑树。
+
 
 ## 2.1 Bucket sort
 

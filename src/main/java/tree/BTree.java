@@ -13,7 +13,7 @@ public class BTree<K extends Comparable<K>, V> implements Tree<K, V> {
     }
 
     @Override
-    public void put(K key, V val) {
+    public void insert(K key, V val) {
 
     }
 }

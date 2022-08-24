@@ -1,7 +1,7 @@
 package tree;
 
 /**
- * An implementation of red black binary search tree.
+ * An implementation of red-black binary search tree.
  *
  * @param <K> key type of node.
  * @param <V> value type of node.
@@ -44,12 +44,12 @@ public class RBBST<K extends Comparable<K>, V>
         return node != null && node.color == RED;
     }
 
-    private static <Key extends Comparable<Key>, Val> Node<Key, Val> put(
+    private static <Key extends Comparable<Key>, Val> Node<Key, Val> insert(
             Node<Key, Val> node, Key key, Val val) {
         if (node == null) return new Node<>(key, val);
         int compare = key.compareTo(node.key);
-        if (compare < 0) node.left = put(node.left, key, val);
-        else if (compare > 0) node.right = put(node.right, key, val);
+        if (compare < 0) node.left = insert(node.left, key, val);
+        else if (compare > 0) node.right = insert(node.right, key, val);
         else node.val = val;
 
         if (!isRed(node.left) && isRed(node.right)) node = rotateLeft(node);
@@ -72,8 +72,8 @@ public class RBBST<K extends Comparable<K>, V>
         return get(root, key);
     }
 
-    public void put(K key, V val) {
-        root = put(root, key, val);
+    public void insert(K key, V val) {
+        root = insert(root, key, val);
         root.color = BLACK;
     }
 
