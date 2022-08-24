@@ -130,7 +130,7 @@ Check my implementation of binary search tree in Java [here](https://github.com/
 
 在一棵大小为N的2-3树中，查找和插入操作访问的结点必然不超过`lg N`个。
 
-## 1.3 Red-Black Tree
+## 1.4 Red-Black Tree
 
 > 以下描述摘自Robert Sedgewick和Kevin Wayne的《算法（第4版）》
 
@@ -139,13 +139,13 @@ Check my implementation of binary search tree in Java [here](https://github.com/
 - **红链接**，始终左斜的红色链接相连的两个2-结点构成一个3-结点
 - **黑链接**：2-3树中的普通链接。
 
-### 1.3.1 红黑树的属性：
+### 1.4.1 红黑树的属性：
 
 - 红链接均为左链接；
 - 没有任何一个结点同时和两条红色链接相连；
 - 该树是**完美黑色平衡**的，即任意空链接到根节点的路径上的黑链接数量相同。
 
-### 1.3.2 旋转
+### 1.4.2 旋转
 
 （围绕x的）左旋：
 
@@ -169,7 +169,7 @@ Check my implementation of binary search tree in Java [here](https://github.com/
       [B] [C]    [A] [B]
 ```
 
-### 1.3.3 颜色转换
+### 1.4.3 颜色转换
 
 我们用`FLIP_COLOR`方法来转换一个结点的两个红色子结点的颜色，将子结点的颜色由红变黑，同时将父结点的颜色由黑变红：
 
@@ -187,7 +187,7 @@ Check my implementation of binary search tree in Java [here](https://github.com/
 
 > 虚线代表黑链接，实线代表红链接
 
-### 1.3.4 插入
+### 1.4.4 插入
 
 2-3树中的插入算法需要我们分解，将中间腱插入父结点，直至遇到一个2-结点或是根节点。在沿着插入点到根节点的路径向上移动时的情况的对应处理方式：
 
@@ -195,10 +195,11 @@ Check my implementation of binary search tree in Java [here](https://github.com/
 - 若左子结点是红色的且它的左子结点也是红色的，进行右旋转；
 - 若左右子结点均为红色，进行颜色转换。
 
-### 1.3.4 实现
+### 1.4.5 实现
 
 [这里](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/tree/RBBST.java)是按以上思想实现的红黑树。
 
+# 2. Sorting
 
 ## 2.1 Bucket sort
 
