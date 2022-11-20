@@ -1,7 +1,6 @@
 # Heap
 
-> The following content is a quote from [https://github.com/raywenderlich/swift-algorithm-club](https://github
-.com/raywenderlich/swift-algorithm-club/blob/master/Heap/README.markdown)
+> The following statement is a quote from [https://github.com/raywenderlich/swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club/blob/master/Heap/README.markdown)
 
 A heap is a binary tree inside an array,so it does not use parent/child pointers.A heap is sorted based on the "heap property" that determines the order of the nodes in the tree.
 
@@ -31,11 +30,11 @@ If `i` is the index of a node, then the following formulas give the array indice
 
 Note that this scheme has limitations. You can do the following with a regular binary tree but not with a heap.
 
-![image](https://github.com/janwee-sha/reading-notes/blob/main/DataStructureAndAlgorithm/images/Algorithms.RegularTree.png)
+![image](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/heap/images/Algorithms.RegularTree.png)
 
 You can not start a new level unless the current lowest level is completely full, so heaps always have this kind of shape.
 
-![image](https://github.com/janwee-sha/reading-notes/blob/main/DataStructureAndAlgorithm/images/Algorithms.HeapShape.png)
+![image](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/heap/images/Algorithms.HeapShape.png)
 
 ## What can you do with a heap?
 
