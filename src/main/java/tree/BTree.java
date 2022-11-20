@@ -8,7 +8,7 @@ import java.util.List;
  * @param <K> key
  * @param <V> value
  */
-public class BTree<K extends Comparable<K>, V> implements Tree<K, V> {
+public class BTree<K extends Comparable<K>, V> {
     private Node<K, V> root;
     private int minDegree;
 
@@ -17,7 +17,6 @@ public class BTree<K extends Comparable<K>, V> implements Tree<K, V> {
         this.minDegree = minDegree;
     }
 
-    @Override
     public V get(K key) {
         return get(this.root, key);
     }
@@ -38,7 +37,6 @@ public class BTree<K extends Comparable<K>, V> implements Tree<K, V> {
         }
     }
 
-    @Override
     public void insert(K key, V val) {
 
     }

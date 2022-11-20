@@ -6,8 +6,7 @@ package tree;
  * @param <K> key type of node.
  * @param <V> value type of node.
  */
-public class RBBST<K extends Comparable<K>, V>
-        implements Tree<K, V> {
+public class RBBST<K extends Comparable<K>, V> {
     private static final boolean RED = true;
     private static final boolean BLACK = false;
     private Node<K, V> root;

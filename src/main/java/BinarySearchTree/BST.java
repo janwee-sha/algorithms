@@ -1,12 +1,11 @@
-package tree;
+package BinarySearchTree;
 
 /**
  * An implementation of binary search tree.
  * @param <K> key type of node.
  * @param <V> value type of node.
  */
-public class BST<K extends Comparable<K>, V>
-        implements Tree<K, V> {
+public class BST<K extends Comparable<K>, V> {
     private Node<K, V> root;
 
     private static <Key extends Comparable<Key>, Val> Val get(Node<Key, Val> node, Key key) {
