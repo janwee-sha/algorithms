@@ -1,5 +1,53 @@
+# Algorithms
+
+## Searching
+
+- K-th Largest Element
+
+## Sorting
+
+**Basic sorts**
+
+- Insertion Sort
+- Selection Sort
+- Shell Sort
+
+**Fast sorts**
+
+- Quicksort
+- Merge Sort
+- Heap Sort
+
+**Hybrid Sorts**
+
+- Introsort
+
+Special-purpose sorts
+
+- Counting Sort
+- Radix Sort
+- Topological Sort
+
+**Bad Sorts**
+
+- Bubble Sort
+- Slow Sort
+
 # Data structures
----
+
+## Lists
+
+- Linked List
+
+## Hashing
+
+- Hash Table.
+
+## Graphs
+
+- Graph
+- Breadth-First Search (BFS)
+- Depth-First Searcg (BFS)
 
 ## Trees
 
