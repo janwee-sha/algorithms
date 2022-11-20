@@ -52,4 +52,4 @@ Here are other operations that are built on primitive operations:
 
 ## Implementation
 
-[Here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/heap/Heap.java) is my implementation of Heap.
+[Here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/BTree/BTree.java) is my implementation of Heap.

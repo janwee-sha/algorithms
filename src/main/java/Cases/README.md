@@ -25,4 +25,4 @@ Here's a solution:
 我们知道快速排序的性能和「划分」出的子数组的长度密切相关。直观地理解如果每次规模为 `n` 的问题我们都划分成 1 和 `n−1`，每次递归的时候又向 `n−1` 的集合中递归，这种情况是最坏的，时间代价是 `O(n^2`
 )。我们可以引入随机化来加速这个过程，它的时间代价的期望是`O(n)`，证明过程可以参考「《算法导论》9.2：期望为线性的选择算法」。
 
-[这里](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/cases/KthLargestElement.java) 是按以上思路实现的代码。
+[这里](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/Cases/KthLargestElement.java) 是按以上思路实现的代码。

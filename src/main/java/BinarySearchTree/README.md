@@ -36,4 +36,4 @@ Removeing nodes is easy. After removing a node, we replace the node with either 
 
 ## Implementation
 
-Check my implementation of binary search tree in Java [here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/tree/BST.java).
+Check my implementation of binary search tree in Java [here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/BinarySearchTree/BST.java).

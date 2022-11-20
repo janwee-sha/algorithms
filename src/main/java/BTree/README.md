@@ -73,4 +73,4 @@ Keys can only be inserted to leaf nodes.
 
 ## Implementation
 
-[Here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/tree/BTree.java) is a implementation of B-tree.
+[Here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/BTree/BTree.java) is a implementation of B-tree.

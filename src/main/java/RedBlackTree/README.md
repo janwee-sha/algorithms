@@ -62,4 +62,4 @@
 
 ## 实现
 
-[这里](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/tree/RBBST.java)是按以上思想实现的红黑树。
+[这里](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/RedBlackTree/RBBST.java)是按以上思想实现的红黑树。

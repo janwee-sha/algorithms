@@ -38,4 +38,4 @@ Performance of heap sort is **O(n log n)** in best, worst, and average case.
 
 **Implementation**:
 
-[Here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/sort/HeapSort.java) is my implementation of Heap Sort.
+[Here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/HeapSort/HeapSort.java) is my implementation of Heap Sort.
