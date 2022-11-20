@@ -37,6 +37,19 @@ public class Trie {
         return node.num;
     }
 
+    public boolean contains(String content) {
+        if (content == null || content.length() == 0) return false;
+
+        Node node = root;
+        char[] cs = content.toCharArray();
+        for (int i = 0; i < content.length(); i++) {
+            int pos = cs[i] - 'a';
+            if (node.children[pos] == null) return false;
+            node = node.children[pos];
+        }
+        return node.num == 0;
+    }
+
     private static class Node {
         private int num;
         private Node[] children;
