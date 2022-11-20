@@ -1,5 +1,6 @@
-package heap;
+package heap.test;
 
+import heap.Heap;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

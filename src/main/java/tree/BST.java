@@ -31,6 +31,10 @@ public class BST<K extends Comparable<K>, V>
         root = insert(root, key, val);
     }
 
+    public void remove(K key) {
+
+    }
+
     public V get(K key) {
         return get(root, key);
     }
