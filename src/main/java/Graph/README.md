@@ -4,7 +4,7 @@
 
 A graph looks like the following picture:
 
-![image](https://note.youdao.com/favicon.ico)
+![image](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/Graph/images/Graph.png)
 
 In computer scicence, a graph is defined as a set of *vertices* paired with a set of *edges*. Edges connect a vertex to other vertices.
 
