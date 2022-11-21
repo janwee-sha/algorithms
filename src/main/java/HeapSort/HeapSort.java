@@ -1,6 +1,8 @@
 package HeapSort;
 
-public class HeapSort {
+import BucketSort.Sort;
+
+public class HeapSort implements Sort {
     private int[] heap;
     private int heapSize;
 

@@ -1,9 +1,11 @@
 package MergeSort;
 
+import BucketSort.Sort;
+
 //归并排序，是创建在归并操作上的一种有效的排序算法。
 //该算法采用分治法（Divide and Conquer）的一个非常典型的应用，且各层分治递归可以同时进行。
 //time complexity:O(n*log₂n)
-public class MergeSort {
+public class MergeSort implements Sort {
     public int[] sort(int[] arr) {
         if (arr.length == 0) return arr;
         return sort(arr, 0, arr.length - 1);

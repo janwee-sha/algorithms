@@ -5,7 +5,7 @@ import java.util.List;
 
 //桶排序（Bucket sort），又称箱排序。原理是将数组分到有限数量的同理。
 // 每个桶再个别排序（可能使用别的排序算法或是以递归方式继续进行桶排序）。
-public class BucketSort {
+public class BucketSort implements Sort{
     private int indexFor(int elem, int min, int step) {
         return (elem - min) / step;
     }
