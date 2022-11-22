@@ -1,9 +1,9 @@
-package Transform.test;
+package Cases.test;
 
+import Cases.ArabicToChinese;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import Transform.ArabicToChinese;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

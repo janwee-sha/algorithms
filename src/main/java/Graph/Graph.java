@@ -8,7 +8,7 @@ import LinkedList.Bag;
 public class Graph {
     private final int nVertex;//顶点数目
     private int nEdge;//边的数目
-    private Bag<Integer>[] adj;//邻接表
+    private Bag<Integer>[] adj;//邻接表数组
 
     @SuppressWarnings("unchecked")
     public Graph(int nVertex) {

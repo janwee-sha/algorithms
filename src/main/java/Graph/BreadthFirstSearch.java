@@ -5,12 +5,12 @@ import java.util.Stack;
 import java.util.concurrent.LinkedBlockingQueue;
 
 //find a path from one vertex to another using breadth first search
-public class BreadthFirstGraphPaths implements GraphPaths {
+public class BreadthFirstSearch implements Search {
     private final int sVertex;
     private boolean[] marked;
     private int[] edgeTo;
 
-    public BreadthFirstGraphPaths(Graph graph, int sVertex) {
+    public BreadthFirstSearch(Graph graph, int sVertex) {
         this.marked = new boolean[graph.nVertex()];
         this.edgeTo = new int[graph.nVertex()];
         this.sVertex = sVertex;

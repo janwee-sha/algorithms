@@ -1,7 +1,7 @@
 package Graph.test;
 
-import Graph.BreadthFirstGraphPaths;
-import Graph.DepthFirstGraphPaths;
+import Graph.BreadthFirstSearch;
+import Graph.DepthFirstSearch;
 import Graph.Graph;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -12,10 +12,10 @@ import java.util.Stack;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class GraphPathsTest {
+class SearchTest {
     private Graph graph;
-    private DepthFirstGraphPaths depthFirst;
-    private BreadthFirstGraphPaths breadthFirst;
+    private DepthFirstSearch depthFirst;
+    private BreadthFirstSearch breadthFirst;
 
     @BeforeAll
     static void beforeAll() {
@@ -39,8 +39,8 @@ class GraphPathsTest {
         graph.addEdge(2, 3);
         graph.addEdge(3, 4);
         graph.addEdge(3, 5);
-        depthFirst = new DepthFirstGraphPaths(graph, 0);
-        breadthFirst = new BreadthFirstGraphPaths(graph, 0);
+        depthFirst = new DepthFirstSearch(graph, 0);
+        breadthFirst = new BreadthFirstSearch(graph, 0);
     }
 
     @Test

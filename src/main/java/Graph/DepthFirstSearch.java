@@ -3,12 +3,12 @@ package Graph;
 import java.util.Stack;
 
 //find a path from one vertex to another using depth first search
-public class DepthFirstGraphPaths implements GraphPaths {
+public class DepthFirstSearch implements Search {
     private final int sVertex;//first vertex
     private boolean[] marked;
     private int[] edgeTo;
 
-    public DepthFirstGraphPaths(Graph graph, int sVertex) {
+    public DepthFirstSearch(Graph graph, int sVertex) {
         this.marked = new boolean[graph.nVertex()];
         this.edgeTo = new int[graph.nVertex()];
         this.sVertex = sVertex;

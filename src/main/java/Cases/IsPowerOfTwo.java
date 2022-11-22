@@ -1,4 +1,4 @@
-package BitOperation;
+package Cases;
 
 public class IsPowerOfTwo {
     public interface Solution {

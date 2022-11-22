@@ -1,6 +1,6 @@
-package BitOperation.test;
+package Cases.test;
 
-import BitOperation.TotalHammingDistance;
+import Cases.TotalHammingDistance;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;

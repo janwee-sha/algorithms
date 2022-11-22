@@ -1,4 +1,4 @@
-package BitOperation;
+package Cases;
 
 /**
  * 两个整数的 汉明距离 指的是这两个数字的二进制数对应位不同的数量。
