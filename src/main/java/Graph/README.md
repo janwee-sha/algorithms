@@ -43,7 +43,7 @@
 
 - 连通性。
 
-[这里](https://note.youdao.com/)是深度优先搜索的实现代码。
+[这里](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/Graph/DepthFirstSearch.java)是深度优先搜索的实现代码。
 
 ## 广度优先搜索
 
@@ -58,4 +58,4 @@
 
 深度优先搜索和广度优先搜索的不同之处仅在于从数据结构中获取下一个顶点的规则，对于广度优先搜索来说是最早加入的顶点，对于深度优先搜索来说是最晚加入的顶点。
 
-[这里](https://note.youdao.com/)是广度优先搜索的实现代码。
+[这里](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/Graph/BreadthFirstSearch.java)是广度优先搜索的实现代码。
