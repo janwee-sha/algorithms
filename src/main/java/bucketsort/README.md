@@ -21,4 +21,4 @@ In the best case, the algorithm distributes the elements uniformly between bucke
 
 In the worst case, the elements are sent all to the same bucket, making the process take O(n^2).
 
-[Here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/BucketSort/BucketSort.java) is my implementation of Bucket Sort.
+[Here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/bucketsort/BucketSort.java) is my implementation of Bucket Sort.

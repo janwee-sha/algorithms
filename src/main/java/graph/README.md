@@ -4,14 +4,14 @@
 
 > 定义: 图是一组顶点和一组能够将两个顶点相连的边组成的。
 
-![image](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/Graph/images/Graph.png)
+![image](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/graph/images/Graph.png)
 
 特殊的图:
 
 - **自环**：即一条连接一个顶点和自身的边
 - 连接同一对顶点的两条边称为**平行边**。
 
-![image](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/Graph/images/Anomalies.png)
+![image](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/graph/images/Anomalies.png)
 
 **4种重要的图模型**：
 
@@ -26,9 +26,9 @@
 - **边的数组**。使用一个`Edge`类，它含有两个`int`实例变量。
 - **邻接表数组**。使用一个以顶点为索引的列表数组，其中的每个元素都适合该顶点相邻的顶点列表。
 
-![image](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/Graph/images/AdjListsRepresentation.png)
+![image](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/graph/images/AdjListsRepresentation.png)
 
-[这里](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/Graph/Graph.java)是用邻接表数组的表示方式实现的图的代码。
+[这里](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/graph/Graph.java)是用邻接表数组的表示方式实现的图的代码。
 
 ## 深度优先算法
 
@@ -43,7 +43,7 @@
 
 - 连通性。
 
-[这里](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/Graph/DepthFirstSearch.java)是深度优先搜索的实现代码。
+[这里](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/graph/DepthFirstSearch.java)是深度优先搜索的实现代码。
 
 ## 广度优先搜索
 
@@ -58,4 +58,4 @@
 
 深度优先搜索和广度优先搜索的不同之处仅在于从数据结构中获取下一个顶点的规则，对于广度优先搜索来说是最早加入的顶点，对于深度优先搜索来说是最晚加入的顶点。
 
-[这里](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/Graph/BreadthFirstSearch.java)是广度优先搜索的实现代码。
+[这里](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/graph/BreadthFirstSearch.java)是广度优先搜索的实现代码。

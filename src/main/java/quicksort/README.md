@@ -16,4 +16,4 @@ Once we finish to partition, we recursively sort the partitions, then glues thos
 
 To implement a Quick Sort, we need to consider how to manage the partitions, and put the elements to their correct positions. We can use 4 variables, which can be called `p`,`i`,`j`,`r`. `p` and `r` always mark the start and end position of current subarray. `j` always points at the element to traverse. And `i` marks the end position of the left partition that contains small element. Each time we add an element to the left position, we only need to swap the element `j` and the element `i+1`, then make `i` plus 1. That can help us to achieve the goal of expanding the left partition and the moving the right partition forwards. And when we want to add an element to the right partition, we simply make `j` plus 1.
 
-[Here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/QuickSort/QuickSort.java) is my implementation of Quick Sort.
+[Here](https://github.com/janwee-sha/algorithms/blob/main/src/main/java/quicksort/QuickSort.java) is my implementation of Quick Sort.
